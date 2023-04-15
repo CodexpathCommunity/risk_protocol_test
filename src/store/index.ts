@@ -1,11 +1,11 @@
 import create from "zustand";
 
-type navState = {
-  topUpNavState: boolean
-  toggleTopUpNav: (newState: boolean) => void
+type bookState = {
+  data: []
+  setData: (newState: []) => void
 }
 
-export const useTopUpNavState = create<navState>((set) => ({
-  topUpNavState: false,
-  toggleTopUpNav: (newState) => set({ topUpNavState: newState }),
+export const useBookDataState = create<bookState>((set) => ({
+  data: [],
+  setData: (newState ) => set({ data: newState }),
 }));

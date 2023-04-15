@@ -32,14 +32,14 @@ export default function Home() {
 
       <div className='p-6 flex'>
           {/* left */}
-        <div className='flex-1'>
+        <div className='flex-1 mr-10'>
           {/* top */}
           <TokenHeader />
           <StaticChat/>
           {/* market caps */}
         </div>
         {/* right */}
-        <div>
+        <div >
           {/* pair token select */}
           <PairSelector />
         </div>
