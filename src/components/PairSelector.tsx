@@ -1,10 +1,15 @@
+import { useSelectTokenState } from '@/store'
 import Image from 'next/image'
 import React from 'react'
 
 const PairSelector = () => {
-    function handleSelectChange(event : any) {
-  if (event.target.value === "Etherium") {
+    const {setSelectPair} = useSelectTokenState()
+   const   handleSelectChange = (event : any) => {
+    console.log("recieveds update")
+  if (event.target.value === "etherium") {
     // call your function here
+    console.log("sending update")
+    setSelectPair(true)
   }
 }
   return (
@@ -39,9 +44,9 @@ const PairSelector = () => {
                 <p className="text-normal font-semibold">You Recieve</p>
             
 
-                <select className='w-full p-2 rounded' name="select" id="select onChange={handleSelectChange}"  >
+                <select className='w-full p-2 rounded' name="select" id="select" onChange={handleSelectChange} >
                     <option className="text-2xl font-bold">Choose Token</option>
-                    <option value="">Etherium</option>
+                    <option value="etherium">Etherium</option>
                 </select>
             </div>
         </div>
