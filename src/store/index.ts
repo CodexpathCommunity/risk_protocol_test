@@ -1,11 +1,11 @@
 import create from "zustand";
 
-type bookState = {
-  data: []
-  setData: (newState: []) => void
+type tokenState = {
+  selectPair: boolean
+  setSelectPair: (newState: boolean ) => void
 }
 
-export const useBookDataState = create<bookState>((set) => ({
-  data: [],
-  setData: (newState ) => set({ data: newState }),
+export const useSelectTokenState = create<tokenState>((set) => ({
+ selectPair: false,
+  setSelectPair: (newState ) => set({ selectPair: newState }),
 }));

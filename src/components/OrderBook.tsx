@@ -1,10 +1,10 @@
 
 
-const OrderBookComponent = ({ orderBook  } : any) => {
+const OrderBookComponent = ({ bids, asks  } : any) => {
   return (
-    <>
+    <div>
       <h2>Bids</h2>
-      <table>
+      <table className="w-full">
         <thead>
           <tr>
             <th>Price</th>
@@ -12,8 +12,8 @@ const OrderBookComponent = ({ orderBook  } : any) => {
             <th>Total</th>
           </tr>
         </thead>
-        <tbody>
-          {orderBook?.bids?.records.map((record: any) => (
+        <tbody className="">
+          {bids?.records.map((record: any) => (
             <tr key={record?.order?.metaData?.orderHash}>
               <td>{record?.order?.takerAmount}</td>
               <td>{record?.order?.makerAmount}</td>
@@ -24,7 +24,7 @@ const OrderBookComponent = ({ orderBook  } : any) => {
       </table>
 
       <h2>Asks</h2>
-      <table>
+      <table className="w-full">
         <thead>
           <tr>
             <th>Price</th>
@@ -33,7 +33,7 @@ const OrderBookComponent = ({ orderBook  } : any) => {
           </tr>
         </thead>
         <tbody>
-          {orderBook.asks.records.map((record: any) => (
+          {asks.records.map((record: any) => (
             <tr key={record?.order?.metaData?.orderHash}>
               <td>{record?.order?.takerAmount}</td>
               <td>{record?.order?.makerAmount}</td>
@@ -42,7 +42,7 @@ const OrderBookComponent = ({ orderBook  } : any) => {
           ))}
         </tbody>
       </table>
-    </>
+    </div>
   );
 };
 

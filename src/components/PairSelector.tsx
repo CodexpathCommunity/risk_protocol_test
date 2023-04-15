@@ -2,6 +2,11 @@ import Image from 'next/image'
 import React from 'react'
 
 const PairSelector = () => {
+    function handleSelectChange(event : any) {
+  if (event.target.value === "Etherium") {
+    // call your function here
+  }
+}
   return (
     <div className='mr-20 border border-gray-200 rounded-lg py-4 w-96 shadow-lg'>
         <div className="border-b border-b-gray-300 px-4">
@@ -32,13 +37,12 @@ const PairSelector = () => {
             </div>
             <div className="p-4 space-y-4">
                 <p className="text-normal font-semibold">You Recieve</p>
-                <div className="flex items-center space-x-2">
-                    <p className="text-2xl font-bold">Choose Token</p>
-                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-  <path fill-rule="evenodd" d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z" clip-rule="evenodd" />
-</svg>
-         
-                </div>
+            
+
+                <select className='w-full p-2 rounded' name="select" id="select onChange={handleSelectChange}"  >
+                    <option className="text-2xl font-bold">Choose Token</option>
+                    <option value="">Etherium</option>
+                </select>
             </div>
         </div>
     </div>
