@@ -1,7 +1,6 @@
+import { useWebSocket } from "@/hooks/useWebsocket";
 import { useEffect, useState } from "react";
-import { io } from "socket.io-client";
-// const socket = io('wss://api.0x.org/orderbook/v1');
-const socket = io('wss://api.0x.org/sra/v3');
+
 
 
 type Order = {
@@ -18,10 +17,14 @@ type OrderUpdate = {
 const OrderBook = () => {
   const [asks, setAsks] = useState<Order[]>([]);
   const [bids, setBids] = useState<Order[]>([]);
+   const handleMessage = (event: MessageEvent) => {
+    console.log('Received message:', event.data);
+  };
 
- socket.on('connect', () => {
-  console.log('Connected to 0x Orderbook API');
-})
+  useWebSocket('wss://api.0x.org/orderbook/v1', handleMessage)
+
+   
+  
 
   return (
     <div>
